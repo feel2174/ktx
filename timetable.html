@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>KTX 노선별 시간표 조회 | 경부선·호남선·강릉선 등 9개 노선</title>
+<meta name="description" content="경부선, 호남선, 전라선, 강릉선 등 KTX 9개 노선의 정규 시간표를 출발역·도착역으로 검색해 확인할 수 있습니다.">
+<link rel="canonical" href="https://ktx.zucca100.com/timetable.html">
+<meta name="robots" content="index,follow">
+<meta name="naver-site-verification" content="a7feb17b45eee95991f97860eff9dbf93d3845fe" />
+<meta name="theme-color" content="#1f3b57">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="추석 기차표 예매 가이드">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:title" content="KTX 노선별 시간표 조회">
+<meta property="og:description" content="경부선, 호남선, 전라선, 강릉선 등 KTX 9개 노선의 정규 시간표를 출발역·도착역으로 검색해 확인할 수 있습니다.">
+<meta property="og:url" content="https://ktx.zucca100.com/timetable.html">
+<meta property="og:image" content="https://ktx.zucca100.com/assets/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="추석 기차표 예매 가이드">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="KTX 노선별 시간표 조회">
+<meta name="twitter:description" content="경부선, 호남선, 전라선, 강릉선 등 KTX 9개 노선의 정규 시간표를 출발역·도착역으로 검색해 확인할 수 있습니다.">
+<meta name="twitter:image" content="https://ktx.zucca100.com/assets/og-image.jpg">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@600;700&family=Noto+Sans+KR:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+<style>
+  .field{display:flex;flex-direction:column;gap:6px;flex:1 1 160px;}
+  .field label{font-family:var(--font-mono);font-size:11px;letter-spacing:0.05em;text-transform:uppercase;color:var(--ink-faint);}
+  .field select{
+    font-family:var(--font-body);font-size:14.5px;padding:10px 12px;border-radius:6px;
+    border:1px solid var(--border-strong);background:var(--paper-raised);color:var(--ink);
+  }
+  .searchbar{display:flex;flex-wrap:wrap;gap:12px;align-items:flex-end;margin:18px 0 6px;}
+  .swap-btn{
+    flex:0 0 auto;width:40px;height:40px;border-radius:50%;border:1px solid var(--border-strong);
+    background:var(--paper-raised);color:var(--rail);font-size:16px;cursor:pointer;align-self:flex-end;
+  }
+  .searchbtn{
+    flex:0 0 auto;background:var(--persimmon);color:#fff;font-weight:700;border:none;
+    padding:11px 22px;border-radius:6px;font-size:14.5px;cursor:pointer;align-self:flex-end;
+  }
+  .resulthead{display:flex;justify-content:space-between;align-items:baseline;margin:26px 0 10px;flex-wrap:wrap;gap:8px;}
+  .resulthead h3{margin:0;font-size:16px;font-family:var(--font-body);font-weight:700;}
+  .resultcount{font-family:var(--font-mono);font-size:12.5px;color:var(--ink-faint);}
+  table.tt{width:100%;border-collapse:collapse;font-size:14px;min-width:520px;}
+  table.tt th{
+    text-align:left;font-family:var(--font-mono);font-size:11px;letter-spacing:0.04em;text-transform:uppercase;
+    color:var(--ink-faint);background:var(--paper-sunk);padding:9px 12px;border-bottom:1px solid var(--border);position:sticky;top:0;
+  }
+  table.tt td{padding:10px 12px;border-bottom:1px solid var(--border);white-space:nowrap;}
+  table.tt tr:last-child td{border-bottom:none;}
+  table.tt td.time{font-family:var(--font-mono);font-weight:600;}
+  .formation-badge{
+    display:inline-block;font-size:11px;padding:2px 8px;border-radius:100px;
+    background:var(--moon-bg);color:var(--moon);border:1px solid color-mix(in srgb, var(--moon) 35%, transparent);
+    font-family:var(--font-mono);
+  }
+  .empty-msg{padding:24px;text-align:center;color:var(--ink-faint);font-size:14px;border:1px dashed var(--border-strong);border-radius:6px;}
+  .linegrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;margin:16px 0 8px;}
+  .linegrid button{
+    text-align:left;background:var(--paper-raised);border:1px solid var(--border);border-radius:6px;
+    padding:12px 14px;cursor:pointer;font-family:var(--font-body);color:var(--ink);font-size:13.5px;font-weight:600;
+  }
+  .linegrid button:hover{border-color:var(--rail);}
+  .linegrid button.active{border-color:var(--rail);background:color-mix(in srgb, var(--rail) 8%, var(--paper-raised));}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="index.html"><span class="flag">🚄</span>추석 기차표 예매 가이드</a>
+    <nav><a href="index.html">홈</a></nav>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="crumb"><a href="index.html">추석 기차표 예매 가이드</a> &gt; 노선별 시간표 조회</div>
+
+  <div class="pagehead">
+    <h1>KTX 노선별 시간표 조회</h1>
+  </div>
+
+  <div class="snippet">
+    <span class="label">이용 안내</span>
+    경부선·호남선·전라선·강릉선 등 KTX 9개 노선의 <strong>정규(평시) 시간표</strong>입니다. 노선을 고른 뒤
+    출발역과 도착역을 선택하면 해당 구간을 지나는 열차와 출발·도착 시각을 볼 수 있습니다. 추석 특별수송기간에는
+    임시열차 추가·시간 변경이 있을 수 있으니, 실제 예매 전 코레일 예매 화면에서 다시 한 번 확인하세요.
+  </div>
+
+  <section class="block">
+    <h2>1. 노선 선택</h2>
+    <div class="linegrid" id="lineGrid"></div>
+
+    <h2 style="margin-top:30px;">2. 출발역 · 도착역 선택</h2>
+    <div class="searchbar">
+      <div class="field">
+        <label>출발역</label>
+        <select id="fromStation"></select>
+      </div>
+      <button class="swap-btn" id="swapBtn" type="button" title="출발·도착 바꾸기">⇄</button>
+      <div class="field">
+        <label>도착역</label>
+        <select id="toStation"></select>
+      </div>
+      <button class="searchbtn" id="searchBtn" type="button">시간표 검색</button>
+    </div>
+
+    <div class="resulthead">
+      <h3 id="resultTitle">역을 선택하고 검색해보세요</h3>
+      <span class="resultcount" id="resultCount"></span>
+    </div>
+    <div class="tbl-wrap" id="resultWrap" style="display:none;">
+      <table class="tt" id="resultTable">
+        <thead><tr><th>열차번호</th><th>편성</th><th>출발</th><th>도착</th><th>소요시간</th><th>운행요일</th></tr></thead>
+        <tbody id="resultBody"></tbody>
+      </table>
+    </div>
+    <div class="empty-msg" id="emptyMsg" style="display:none;"></div>
+  </section>
+
+  <div class="ad-slot"><!-- AD SLOT: 본문 중단 --> 광고 영역</div>
+
+  <section class="block">
+    <div class="card">
+      <strong>이 구간, 지금 예매하려면</strong>
+      <div class="btn-row">
+        <a class="cta small" href="https://bt.korail.com/holiday/main" target="_blank" rel="noopener">코레일 명절 예매 페이지 열기</a>
+        <a class="cta outline small" href="cancel-ticket.html">매진이면? 취소표 잡는 법</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <h2>이어서 보면 좋은 글</h2>
+    <div class="grid">
+      <a class="gcard" href="general-train.html"><div class="t">무궁화·ITX 예매</div><div class="d">일반열차 예매 일정</div></a>
+      <a class="gcard" href="alternative-transport.html"><div class="t">매진됐을 때 대안</div><div class="d">고속버스·SRT로 갈아타는 법</div></a>
+      <a class="gcard" href="member-integration.html"><div class="t">코레일·SR 통합회원</div><div class="d">전환 방법과 주의사항</div></a>
+    </div>
+  </section>
+
+  <footer class="pagefoot">
+    <div class="disclaimer">본 시간표는 참고용 정규(평시) 시간표이며 실제 운행 시각과 다를 수 있습니다. 명절 특별수송기간 등 실제 예매·운행 정보는 <a href="https://bt.korail.com/holiday/main" target="_blank" rel="noopener">코레일 공식 채널</a>에서 확인하세요.</div>
+    <p>최종 수정일 2026.08.24 · <a href="index.html">추석 기차표 예매 가이드 홈으로</a></p>
+  </footer>
+</div>
+
+<script src="assets/timetable-data.js"></script>
+<script>
+(function(){
+  var lineKeys = Object.keys(KTX_TIMETABLE);
+  var currentLine = lineKeys[0];
+
+  var lineGrid = document.getElementById('lineGrid');
+  var fromSel = document.getElementById('fromStation');
+  var toSel = document.getElementById('toStation');
+
+  function renderLineGrid(){
+    lineGrid.innerHTML = '';
+    lineKeys.forEach(function(key){
+      var btn = document.createElement('button');
+      btn.type = 'button';
+      btn.textContent = KTX_TIMETABLE[key].label;
+      btn.className = (key === currentLine) ? 'active' : '';
+      btn.addEventListener('click', function(){
+        currentLine = key;
+        renderLineGrid();
+        populateStations();
+        clearResults();
+      });
+      lineGrid.appendChild(btn);
+    });
+  }
+
+  function populateStations(){
+    var stations = KTX_TIMETABLE[currentLine].stations_down;
+    fromSel.innerHTML = '';
+    toSel.innerHTML = '';
+    stations.forEach(function(name, i){
+      var o1 = document.createElement('option'); o1.value = name; o1.textContent = name;
+      var o2 = document.createElement('option'); o2.value = name; o2.textContent = name;
+      fromSel.appendChild(o1);
+      toSel.appendChild(o2);
+    });
+    fromSel.selectedIndex = 0;
+    toSel.selectedIndex = stations.length - 1;
+  }
+
+  function findRoute(lineData, from, to){
+    var sD = lineData.stations_down, sU = lineData.stations_up;
+    var iDF = sD.indexOf(from), iDT = sD.indexOf(to);
+    if(iDF >= 0 && iDT >= 0 && iDF < iDT){
+      return {trains: lineData.trains_down, iFrom: iDF, iTo: iDT};
+    }
+    var iUF = sU.indexOf(from), iUT = sU.indexOf(to);
+    if(iUF >= 0 && iUT >= 0 && iUF < iUT){
+      return {trains: lineData.trains_up, iFrom: iUF, iTo: iUT};
+    }
+    return null;
+  }
+
+  function toMinutes(hhmm){
+    var p = hhmm.split(':');
+    return parseInt(p[0],10)*60 + parseInt(p[1],10);
+  }
+
+  function duration(t1, t2){
+    var m = toMinutes(t2) - toMinutes(t1);
+    if(m < 0) m += 24*60;
+    var h = Math.floor(m/60), mm = m % 60;
+    return (h>0 ? h+'시간 ':'') + mm + '분';
+  }
+
+  function clearResults(){
+    document.getElementById('resultWrap').style.display = 'none';
+    document.getElementById('emptyMsg').style.display = 'none';
+    document.getElementById('resultTitle').textContent = '역을 선택하고 검색해보세요';
+    document.getElementById('resultCount').textContent = '';
+  }
+
+  function doSearch(){
+    var from = fromSel.value, to = toSel.value;
+    var titleEl = document.getElementById('resultTitle');
+    var countEl = document.getElementById('resultCount');
+    var wrapEl = document.getElementById('resultWrap');
+    var emptyEl = document.getElementById('emptyMsg');
+    var body = document.getElementById('resultBody');
+
+    if(from === to){
+      wrapEl.style.display = 'none';
+      emptyEl.style.display = 'block';
+      emptyEl.textContent = '출발역과 도착역이 같습니다. 다른 역을 선택해주세요.';
+      titleEl.textContent = from + ' → ' + to;
+      countEl.textContent = '';
+      return;
+    }
+
+    var route = findRoute(KTX_TIMETABLE[currentLine], from, to);
+    titleEl.textContent = from + ' → ' + to;
+
+    if(!route){
+      wrapEl.style.display = 'none';
+      emptyEl.style.display = 'block';
+      emptyEl.textContent = '이 노선에서는 ' + from + ' → ' + to + ' 방향으로 운행하는 열차 정보가 없습니다. 출발·도착역을 바꿔서 다시 검색해보세요.';
+      countEl.textContent = '';
+      return;
+    }
+
+    var rows = [];
+    route.trains.forEach(function(t){
+      var t1 = t.times[route.iFrom], t2 = t.times[route.iTo];
+      if(t1 && t2){
+        rows.push({no:t.no, formation:t.formation, dep:t1, arr:t2, note:t.note});
+      }
+    });
+    rows.sort(function(a,b){ return toMinutes(a.dep) - toMinutes(b.dep); });
+
+    if(rows.length === 0){
+      wrapEl.style.display = 'none';
+      emptyEl.style.display = 'block';
+      emptyEl.textContent = '두 역에 모두 정차하는 열차가 없습니다. (일부 KTX는 중소역을 무정차 통과합니다)';
+      countEl.textContent = '';
+      return;
+    }
+
+    body.innerHTML = '';
+    rows.forEach(function(r){
+      var tr = document.createElement('tr');
+      tr.innerHTML =
+        '<td>' + r.no + '</td>' +
+        '<td><span class="formation-badge">' + r.formation + '</span></td>' +
+        '<td class="time">' + r.dep + '</td>' +
+        '<td class="time">' + r.arr + '</td>' +
+        '<td>' + duration(r.dep, r.arr) + '</td>' +
+        '<td>' + (r.note || '-') + '</td>';
+      body.appendChild(tr);
+    });
+    emptyEl.style.display = 'none';
+    wrapEl.style.display = 'block';
+    countEl.textContent = '총 ' + rows.length + '개 열차';
+  }
+
+  document.getElementById('searchBtn').addEventListener('click', doSearch);
+  document.getElementById('swapBtn').addEventListener('click', function(){
+    var f = fromSel.value;
+    fromSel.value = toSel.value;
+    toSel.value = f;
+  });
+
+  renderLineGrid();
+  populateStations();
+  doSearch();
+})();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://ktx.zucca100.com/</loc><changefreq>daily</changefreq><priority>1.0</priority></url>
+  <url><loc>https://ktx.zucca100.com/timetable.html</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ktx.zucca100.com/cancel-ticket.html</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ktx.zucca100.com/member-integration.html</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ktx.zucca100.com/priority-booking.html</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ktx.zucca100.com/refund-penalty.html</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ktx.zucca100.com/alternative-transport.html</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ktx.zucca100.com/general-train.html</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ktx.zucca100.com/pet-child.html</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+</urlset>

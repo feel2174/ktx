@@ -1,46 +1,25 @@
 /* 추석 기차표 예매 가이드 - shared stylesheet */
 
 :root{
-  --paper:#fbf8ef;
+  --paper:#ffffff;
   --paper-raised:#ffffff;
-  --paper-sunk:#f2e9d4;
-  --ink:#2c2818;
-  --ink-soft:#69614c;
-  --ink-faint:#948b70;
-  --rail:#2c5175;
-  --rail-soft:#4a7196;
+  --paper-sunk:#f6efe2;
+  --ink:#2b2013;
+  --ink-soft:#63533c;
+  --ink-faint:#8d7c61;
+  --rail:#7a4419;
+  --rail-soft:#a06a34;
   --persimmon:#c1440e;
   --persimmon-soft:#f6e3d4;
-  --moon:#b9822a;
-  --moon-bg:#faedcd;
-  --border:rgba(44,40,24,0.1);
-  --border-strong:rgba(44,40,24,0.22);
+  --moon:#a1740f;
+  --moon-bg:#fbedc7;
+  --border:rgba(43,32,19,0.12);
+  --border-strong:rgba(43,32,19,0.26);
   --good:#3f6b3f;
-  --shadow:0 1px 2px rgba(44,40,24,0.04), 0 8px 20px -12px rgba(44,40,24,0.14);
+  --shadow:0 1px 2px rgba(43,32,19,0.05), 0 8px 20px -12px rgba(43,32,19,0.16);
   --font-display:'Noto Serif KR','Nanum Myeongjo',serif;
   --font-body:'Noto Sans KR',-apple-system,BlinkMacSystemFont,'Malgun Gothic',sans-serif;
   --font-mono:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
-}
-
-@media (prefers-color-scheme: dark){
-  :root{
-    --paper:#17140f;
-    --paper-raised:#221e17;
-    --paper-sunk:#0f0d09;
-    --ink:#efe8d4;
-    --ink-soft:#bdb290;
-    --ink-faint:#8a8267;
-    --rail:#7fa3c4;
-    --rail-soft:#5c7f9e;
-    --persimmon:#e58a4c;
-    --persimmon-soft:#3a2c22;
-    --moon:#e8c477;
-    --moon-bg:#332a17;
-    --border:rgba(239,232,212,0.14);
-    --border-strong:rgba(239,232,212,0.28);
-    --good:#7fb17f;
-    --shadow:0 1px 2px rgba(0,0,0,0.3), 0 8px 20px -12px rgba(0,0,0,0.55);
-  }
 }
 
 *{box-sizing:border-box;}

@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>추석 기차표 취소표, 언제 가장 많이 풀릴까? | 잡는 법 정리</title>
 <meta name="description" content="추석 기차표 취소표가 풀리는 시간대와 코레일톡 알림 설정, 예약대기 활용법을 정리했습니다.">
-<link rel="canonical" href="https://ktx.zucca100.com/cancel-ticket.html">
+<link rel="canonical" href="https://ktx.zucca100.com/cancel-ticket">
 <meta name="robots" content="index,follow">
 <meta name="naver-site-verification" content="a7feb17b45eee95991f97860eff9dbf93d3845fe" />
 <meta name="google-site-verification" content="ylRZwQXQH9ZVegPDqDJGKHanYBIwb2fDMD_NWF917FI" />
@@ -15,7 +15,7 @@
 <meta property="og:locale" content="ko_KR">
 <meta property="og:title" content="추석 기차표 취소표, 언제 가장 많이 풀릴까?">
 <meta property="og:description" content="추석 기차표 취소표가 풀리는 시간대와 코레일톡 알림 설정, 예약대기 활용법을 정리했습니다.">
-<meta property="og:url" content="https://ktx.zucca100.com/cancel-ticket.html">
+<meta property="og:url" content="https://ktx.zucca100.com/cancel-ticket">
 <meta property="og:image" content="https://ktx.zucca100.com/assets/og-image.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -31,20 +31,19 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Song+Myung&family=IBM+Plex+Sans+KR:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/style.css">
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9196149361612087"
-     crossorigin="anonymous"></script>
+<script src="assets/traffic-gate.js"></script>
 </head>
 <body>
 
 <div class="topbar">
   <div class="topbar-inner">
-    <a class="brand" href="index.html"><span class="flag">🚄</span>추석 기차표 예매 가이드</a>
-    <nav><a href="timetable.html">시간표</a><a href="index.html">홈</a></nav>
+    <a class="brand" href="/"><span class="flag">🚄</span>추석 기차표 예매 가이드</a>
+    <nav><a href="timetable">시간표</a><a href="/">홈</a></nav>
   </div>
 </div>
 
 <div class="wrap">
-  <div class="crumb"><a href="index.html">추석 기차표 예매 가이드</a> &gt; 취소표 잡는 법</div>
+  <div class="crumb"><a href="/">추석 기차표 예매 가이드</a> &gt; 취소표 잡는 법</div>
 
   <div class="pagehead">
     <h1>추석 기차표 취소표, 언제 가장 많이 풀릴까?</h1>
@@ -65,11 +64,50 @@
       개인 사정으로 취소하는 승객도 꾸준히 발생하기 때문입니다.
     </p>
 
-    <h3>취소표가 많이 풀리는 시간대</h3>
+    <h3>취소표가 많이 풀리는 황금 시간대</h3>
+    <p>경험적으로 취소표가 집중되는 시간대는 아래 다섯 구간입니다. 물량 감각은 시기·노선에 따라 달라질 수 있으니 참고용으로만 보세요.</p>
+    <figure class="figure">
+      <svg viewBox="0 0 720 230" role="img" aria-labelledby="ct-title" xmlns="http://www.w3.org/2000/svg">
+        <title id="ct-title">취소표가 많이 풀리는 시간대별 물량 감각: 결제마감 직후(자정~1시)가 가장 많고, 출발 1~2일 전, 출발 직전, 전날 밤, 새벽 순</title>
+        <line x1="45" y1="180" x2="690" y2="180" stroke="#e3d4bd" stroke-width="2"/>
+        <g text-anchor="middle" font-family="'IBM Plex Sans KR',sans-serif">
+          <!-- 막대: baseline 180 -->
+          <g>
+            <rect x="65" y="60" width="70" height="120" rx="4" fill="#c1440e"/>
+            <text x="100" y="50" font-size="12" font-weight="700" fill="#c1440e" font-family="'JetBrains Mono',monospace">최다</text>
+            <text x="100" y="200" font-size="12" fill="#2b2013" font-weight="600">결제마감 직후</text>
+            <text x="100" y="216" font-size="11" fill="#63533c">자정~새벽 1시</text>
+          </g>
+          <g>
+            <rect x="195" y="80" width="70" height="100" rx="4" fill="#d1652f"/>
+            <text x="230" y="200" font-size="12" fill="#2b2013" font-weight="600">출발 1~2일 전</text>
+            <text x="230" y="216" font-size="11" fill="#63533c">개인 취소 집중</text>
+          </g>
+          <g>
+            <rect x="325" y="95" width="70" height="85" rx="4" fill="#a06a34"/>
+            <text x="360" y="200" font-size="12" fill="#2b2013" font-weight="600">출발 직전</text>
+            <text x="360" y="216" font-size="11" fill="#63533c">3시간~1시간 전</text>
+          </g>
+          <g>
+            <rect x="455" y="105" width="70" height="75" rx="4" fill="#a1740f"/>
+            <text x="490" y="200" font-size="12" fill="#2b2013" font-weight="600">전날 밤</text>
+            <text x="490" y="216" font-size="11" fill="#63533c">22시~자정</text>
+          </g>
+          <g>
+            <rect x="585" y="110" width="70" height="70" rx="4" fill="#c8a15a"/>
+            <text x="620" y="200" font-size="12" fill="#2b2013" font-weight="600">새벽</text>
+            <text x="620" y="216" font-size="11" fill="#63533c">2~4시</text>
+          </g>
+        </g>
+      </svg>
+      <figcaption>막대 높이는 취소표가 풀리는 상대적 물량 감각(참고용)입니다. 실제 물량은 노선·시기에 따라 달라집니다.</figcaption>
+    </figure>
     <ul>
-      <li><strong>결제 마감 직후(자정~새벽 1시)</strong> : 결제 기한을 넘긴 예약이 한꺼번에 자동 취소됩니다.</li>
+      <li><strong>결제 마감 직후(자정~새벽 1시)</strong> : 결제 기한(일반예매 09.15·사전예매 09.18)을 넘긴 예약이 한꺼번에 자동 취소되어 물량이 가장 많습니다.</li>
       <li><strong>출발 1~2일 전</strong> : 일정 변경으로 인한 개인 취소가 몰립니다.</li>
-      <li><strong>출발 당일 오전</strong> : 늦은 취소와 노쇼 처리분이 풀립니다.</li>
+      <li><strong>출발 3시간~1시간 전</strong> : 이 시점을 넘기면 취소 위약금이 크게 올라, 그 직전에 표를 내놓는 사람이 많습니다.</li>
+      <li><strong>전날 밤(22시~자정)</strong> : 다음 날 출발을 앞두고 취소가 늘어, 1시간쯤 새로고침하며 노려볼 만합니다.</li>
+      <li><strong>새벽 2~4시</strong> : 예약대기 결제 마감분과 늦은 취소가 풀립니다.</li>
     </ul>
 
     <h3>취소표 알림 받는 방법</h3>
@@ -80,20 +118,86 @@
     </ol>
     <p style="font-size:13px;">※ 명절처럼 수요가 몰리는 시기에는 예약대기가 순번까지만 밀리고 실제 배정으로 이어지지 않는 경우도 많으니, 예약대기와 함께 직접 새로고침으로 확인하는 방법을 병행하는 것이 좋습니다.</p>
 
+    <h3>매진표·잔여석 조회, 어떻게 하나요?</h3>
+    <p>
+      매진된 열차라도 좌석이 다시 나오는지 <strong>잔여석</strong>을 실시간으로 확인할 수 있습니다.
+      코레일톡(코레일+) 앱이나 코레일 홈페이지에서 원하는 구간·날짜·열차를 조회하면 <strong>매진표</strong>
+      옆에 좌석이 생겼는지 바로 보입니다. KTX 취소표 시간, 취소표 조회, 실시간 취소표, 매진 임박 좌석,
+      명절 취소표처럼 부르는 이름은 달라도 모두 '매진된 열차에 다시 나오는 좌석'을 가리키는 표현입니다.
+    </p>
+    <ul>
+      <li><strong>실시간 조회 + 예약대기 병행</strong> : 예약대기를 걸어 알림을 받으면서, 황금 시간대에는 직접 새로고침으로 잔여석을 확인하세요.</li>
+      <li><strong>결제 마감 직후 집중 조회</strong> : 코레일 공지의 결제 종료 시각을 확인한 뒤 그 전후로 다시 조회하면 취소표를 만날 확률이 높습니다.</li>
+      <li><strong>특정 시각을 규칙처럼 믿지 않기</strong> : 새벽 3시 전후나 오후 6시 직후에 취소표가 몰린다는 이야기가 많지만, 명절 운영 방식·결제 마감 시각에 따라 달라질 수 있으니 참고만 하세요.</li>
+      <li><strong>구간을 나눠 조회</strong> : 전 구간이 매진이면 중간역까지 끊어서 잔여석을 조회해 보는 것도 방법입니다.</li>
+      <li><strong>앱 설치는 미리</strong> : 조회·예약대기·결제가 앱에서 가장 빠릅니다. <a href="korailtalk-install">코레일톡(코레일+) 앱 설치 방법</a>을 참고해 오픈 전에 준비하세요.</li>
+    </ul>
+
     <div class="card" style="margin-top:20px;">
       <strong>지금 바로 예약대기·알림을 설정하려면</strong>
       <div class="btn-row">
-        <a class="cta small" href="https://bt.korail.com/holiday/main">코레일 예매 페이지 열기</a>
-        <a class="cta outline small" href="https://apps.apple.com/kr/app/id1000558562">📱 App Store</a>
-        <a class="cta outline small" href="https://play.google.com/store/apps/details?id=com.korail.talk">🤖 Google Play</a>
+        <a class="cta small" href="https://bt.korail.com/holiday/main" rel="noopener noreferrer sponsored" data-paid-only>코레일 예매 페이지 열기</a>
+        <a class="cta outline small" href="https://apps.apple.com/kr/app/id1000558562" rel="noopener noreferrer sponsored" data-paid-only>📱 App Store</a>
+        <a class="cta outline small" href="https://play.google.com/store/apps/details?id=com.korail.talk" rel="noopener noreferrer sponsored" data-paid-only>🤖 Google Play</a>
       </div>
     </div>
 
-    <h3>알아두면 좋은 팁</h3>
+    <h3>좌석을 못 구했을 때 — 예약대기·입석·자유석·병합·구간</h3>
     <ul>
-      <li>좌석이 이어지지 않는 구간은 <strong>병합승차권</strong>(좌석+좌석, 좌석+입석 조합)으로 발권될 수 있습니다.</li>
-      <li>목적지까지 한 번에 좌석을 못 구하면, 중간역을 나눈 <strong>구간 예매</strong>도 방법입니다.</li>
+      <li><strong>예약대기</strong> : 매진된 열차 옆 '예약대기' 버튼이 활성화되면 신청할 수 있습니다(대개 최대 9명까지, 출발 2일 전까지). 좌석이 배정되면 <strong>배정 당일 18시까지 결제</strong>해야 하며, 미결제 시 자동 취소됩니다. 명절에는 순번까지만 밀리고 실제 배정으로 이어지지 않는 경우도 많으니 새로고침을 병행하세요.</li>
+      <li><strong>입석·자유석</strong> : 좌석이 매진돼도 입석·자유석으로 탑승할 수 있는 경우가 있습니다. 다만 입석·자유석·병합승차권은 부정승차 방지를 위해 앱에서 다른 사람에게 전달(선물)이 되지 않습니다.</li>
+      <li><strong>병합승차권</strong> : 좌석이 이어지지 않는 구간은 좌석+좌석 또는 좌석+입석 조합의 병합승차권으로 발권될 수 있습니다(한 구간은 앉고 한 구간은 서서 이동).</li>
+      <li><strong>구간(분할) 예매</strong> : 목적지까지 한 번에 좌석을 못 구하면, 중간 정차역을 기준으로 승차권을 두 장으로 나눠 예매하는 방법도 있습니다.</li>
       <li>비정상적인 방식(매크로 등)으로 반복 접근하면 계정이 제한될 수 있어 권장하지 않습니다.</li>
+    </ul>
+
+    <h3>좌석 고를 때 알아두면 좋은 점</h3>
+    <p>같은 열차라도 좌석 위치에 따라 편의가 다릅니다. 예매·예약대기 화면에서 좌석을 고를 때 아래를 참고하세요. (콘센트·좌석 방향은 열차 종류와 호차에 따라 다를 수 있습니다.)</p>
+    <figure class="figure">
+      <svg viewBox="0 0 720 210" role="img" aria-labelledby="seat-title" xmlns="http://www.w3.org/2000/svg">
+        <title id="seat-title">KTX 좌석 배치 예시: 창측(A·D)과 통로측(B·C), 진행 방향(순방향), 콘센트는 창측·좌석 하단에 있는 경우가 많음</title>
+        <g font-family="'IBM Plex Sans KR',sans-serif">
+          <text x="40" y="28" font-size="13" font-weight="700" fill="#c1440e" font-family="'JetBrains Mono',monospace">진행 방향 →</text>
+          <!-- 좌석 블록 (2+2), 행 3개 -->
+          <g text-anchor="middle" font-size="14" font-weight="700">
+            <!-- 열 라벨 -->
+            <text x="80" y="52" font-size="12" fill="#8d7c61">A</text>
+            <text x="140" y="52" font-size="12" fill="#8d7c61">B</text>
+            <text x="230" y="52" font-size="12" fill="#8d7c61">C</text>
+            <text x="290" y="52" font-size="12" fill="#8d7c61">D</text>
+            <!-- 행 1 -->
+            <rect x="56" y="60" width="48" height="34" rx="6" fill="#f6e3d4" stroke="#c1440e" stroke-width="1.5"/><text x="80" y="82" fill="#c1440e">🔌</text>
+            <rect x="116" y="60" width="48" height="34" rx="6" fill="#f6efe2" stroke="#c8a15a" stroke-width="1.5"/>
+            <rect x="206" y="60" width="48" height="34" rx="6" fill="#f6efe2" stroke="#c8a15a" stroke-width="1.5"/>
+            <rect x="266" y="60" width="48" height="34" rx="6" fill="#f6e3d4" stroke="#c1440e" stroke-width="1.5"/><text x="290" y="82" fill="#c1440e">🔌</text>
+            <!-- 행 2 -->
+            <rect x="56" y="104" width="48" height="34" rx="6" fill="#f6e3d4" stroke="#c1440e" stroke-width="1.5"/><text x="80" y="126" fill="#c1440e">🔌</text>
+            <rect x="116" y="104" width="48" height="34" rx="6" fill="#f6efe2" stroke="#c8a15a" stroke-width="1.5"/>
+            <rect x="206" y="104" width="48" height="34" rx="6" fill="#f6efe2" stroke="#c8a15a" stroke-width="1.5"/>
+            <rect x="266" y="104" width="48" height="34" rx="6" fill="#f6e3d4" stroke="#c1440e" stroke-width="1.5"/><text x="290" y="126" fill="#c1440e">🔌</text>
+            <!-- 행 3 -->
+            <rect x="56" y="148" width="48" height="34" rx="6" fill="#f6e3d4" stroke="#c1440e" stroke-width="1.5"/><text x="80" y="170" fill="#c1440e">🔌</text>
+            <rect x="116" y="148" width="48" height="34" rx="6" fill="#f6efe2" stroke="#c8a15a" stroke-width="1.5"/>
+            <rect x="206" y="148" width="48" height="34" rx="6" fill="#f6efe2" stroke="#c8a15a" stroke-width="1.5"/>
+            <rect x="266" y="148" width="48" height="34" rx="6" fill="#f6e3d4" stroke="#c1440e" stroke-width="1.5"/><text x="290" y="170" fill="#c1440e">🔌</text>
+          </g>
+          <text x="185" y="126" text-anchor="middle" font-size="11" fill="#8d7c61" transform="rotate(-90 185 121)">통로</text>
+          <!-- 범례 -->
+          <g font-size="13" fill="#2b2013">
+            <rect x="400" y="64" width="26" height="20" rx="4" fill="#f6e3d4" stroke="#c1440e" stroke-width="1.5"/>
+            <text x="436" y="79">창측(A·D) — 경치·기댐, 콘센트 있는 경우</text>
+            <rect x="400" y="100" width="26" height="20" rx="4" fill="#f6efe2" stroke="#c8a15a" stroke-width="1.5"/>
+            <text x="436" y="115">통로측(B·C) — 드나들기 편함</text>
+            <text x="400" y="151" font-size="13">🔌 콘센트: 창측·좌석 하단(열차별 상이)</text>
+          </g>
+        </g>
+      </svg>
+      <figcaption>좌석 배치 예시(일반 참고용). 실제 콘센트 유무·좌석 방향은 열차 종류와 호차에 따라 다릅니다.</figcaption>
+    </figure>
+    <ul>
+      <li><strong>콘센트</strong> : 장거리라면 콘센트가 있는 좌석이 편리합니다. 예매 화면 좌석 정보나 코레일 안내에서 콘센트 유무를 확인할 수 있습니다.</li>
+      <li><strong>순방향/역방향</strong> : 진행 방향과 같은 순방향 좌석을 선호하는 사람이 많습니다. 예매 화면에서 방향을 확인할 수 있습니다.</li>
+      <li><strong>창측/통로측</strong> : 창측(A·D)은 경치와 기댐이, 통로측(B·C)은 드나들기가 편합니다.</li>
     </ul>
   </section>
 
@@ -101,15 +205,15 @@
   <section class="block">
     <h2>이어서 보면 좋은 글</h2>
     <div class="grid">
-      <a class="gcard" href="alternative-transport.html"><div class="t">매진됐을 때 대안</div><div class="d">고속버스·SRT로 갈아타는 법</div></a>
-      <a class="gcard" href="refund-penalty.html"><div class="t">취소 위약금·환불</div><div class="d">시점별 수수료를 표로 정리</div></a>
-      <a class="gcard" href="member-integration.html"><div class="t">코레일·SR 통합회원</div><div class="d">전환 방법과 주의사항</div></a>
+      <a class="gcard" href="alternative-transport"><div class="t">매진됐을 때 대안</div><div class="d">고속버스·SRT로 갈아타는 법</div></a>
+      <a class="gcard" href="refund-penalty"><div class="t">취소 위약금·환불</div><div class="d">시점별 수수료를 표로 정리</div></a>
+      <a class="gcard" href="member-integration"><div class="t">코레일·SR 통합회원</div><div class="d">전환 방법과 주의사항</div></a>
     </div>
   </section>
 
   <footer class="pagefoot">
     <div class="disclaimer">이 페이지는 정보 제공을 목적으로 하며 코레일 공식 페이지가 아닙니다. 실제 예매는 <a href="https://bt.korail.com/holiday/main">코레일 공식 채널</a>에서 진행하세요.</div>
-    <p>최종 수정일 2026.08.24 · <a href="index.html">추석 기차표 예매 가이드 홈으로</a></p>
+    <p>최종 수정일 2026.08.24 · <a href="/">추석 기차표 예매 가이드 홈으로</a></p>
   </footer>
 </div>
 

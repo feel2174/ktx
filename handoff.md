@@ -1,6 +1,32 @@
 # 추석 기차표 예매 가이드 (ktx.zucca100.com) — 작업 핸드오프
 
-> 다른 디바이스에서 이어서 작업하기 위한 인수인계 문서. 최종 업데이트: 2026-08-24
+> 다른 디바이스에서 이어서 작업하기 위한 인수인계 문서. 최종 업데이트: 2026-09-02
+
+## 2026-09-02 세션 요약 (광고 게이팅 + 콘텐츠 보강 + Cloudflare 이전 준비)
+
+- **광고 게이팅 도입(정적 사이트용 바닐라 JS)**: `assets/traffic-gate.js` 신규. 유료 광고
+  유입(네이버 `n_*`/`NaPm`·구글 `gclid`·카카오·`utm_medium=cpc`·powerlink·광고 referrer)에만
+  `<html class="is-paid">`를 부여하고 **AdSense 로더를 그때만 동적 주입**한다. 다이렉트/심사원엔
+  CTA·앱링크·광고가 숨겨진 깨끗한 페이지. 판정은 화이트리스트 + `sessionStorage('tg_paid')` 세션 유지.
+  - CSS: `[data-paid-only]{display:none}` 기본, `html.is-paid`에서만 노출(`assets/style.css` 하단).
+  - 게이팅 대상: 예매/앱스토어 CTA 버튼(`data-paid-only`). **전화(1544-8545)·공식 안내 링크·본문·
+    SVG는 항상 노출**. CTA `<a>`엔 `rel="...sponsored"`, `target="_blank"` 없음.
+  - **head의 AdSense 로더 `<script>`는 전 페이지에서 제거됨**(이제 traffic-gate.js가 조건부 주입).
+- **URL 확장자 제거**: 전 페이지 내부링크·canonical·og:url·sitemap을 `.html` 없는 형태로 이전
+  (Cloudflare Pages가 `.html`을 확장자 없는 URL로 강제 301하기 때문). 홈은 `/`.
+- **신규 페이지 2종**: `booking-error`(예매 오류·접속 폭주 대처), `korailtalk-install`(코레일톡/
+  코레일+ 앱 설치 — 안드로이드·아이폰·업데이트·설치 안 됨). index 그리드·sitemap(총 11개) 반영.
+- **코레일 공식 이용환경 반영**: notice/25563은 예매 일정이 아니라 '권장 이용환경'(권장 브라우저
+  크롬·삼성인터넷·사파리, OS 안드로이드 12.0+·iOS 16.0+, 접속 불가 대처)임을 확인해 booking-error·
+  korailtalk-install에 반영. cancel-ticket에 매진표·잔여석·실시간 취소표 조회 키워드 섹션 보강.
+- **원본 SVG 인포그래픽 4종**: 예매 일정 타임라인(index), 취소표 황금시간대 막대(cancel-ticket),
+  좌석 배치도(cancel-ticket), 시점별 위약금 타임라인(refund-penalty). 전부 가을톤, 저작권 0.
+- **Cloudflare Pages 이전(진행 예정)**: `_headers`(assets 캐시), `.gitignore`에 `.wrangler` 추가.
+  `vercel.json`은 롤백용 유지. **CF 대시보드에서 GitHub 리포 연결(빌드 없음, 출력=루트) + 커스텀
+  도메인 `ktx.zucca100.com` 연결 + DNS 전환은 사용자가 직접 진행**해야 함.
+- **주의**: `docs/`(광고 게이팅 내부 전략 문서 4종)는 **공개 리포에 커밋하지 않음**(비공개 전략).
+- 검증: traffic-gate 판정 로직 node 단위테스트 8/8 통과, 전 페이지 로컬 200, SVG XML 정상,
+  키워드 커버리지 전수 통과. 실제 브라우저 렌더는 이 세션도 Chrome 확장 미연결로 육안 확인 못 함.
 
 ## 한 줄 요약
 
@@ -58,10 +84,14 @@ HTML/CSS/JS, Vercel에 직접 배포. **콘텐츠·UI 모두 배포된 상태**�
 
 ## 페이지 구조 (정적 9개)
 
+> URL은 확장자 없는 형태로 서비스됨(CF Pages). 아래는 파일명이며 링크는 `.html` 없이 건다.
+
 ```
-index.html                  허브 — 예매 일정표, 3단계 가이드, 참고 요금, 상황별 가이드 그리드, FAQ
+index.html                  허브 — 예매 일정표(+타임라인 SVG), 3단계 가이드, 참고 요금, 상황별 가이드 그리드, FAQ
+booking-error.html           예매 오류·접속 폭주 대처 (신규, 트러블슈팅)
+korailtalk-install.html      코레일톡(코레일+) 앱 설치 방법 (신규)
 timetable.html               노선별 시간표 조회 도구 (assets/timetable-data.js 사용)
-cancel-ticket.html            취소표 잡는 법
+cancel-ticket.html            취소표 잡는 법 (+황금시간대·좌석 SVG)
 member-integration.html       코레일·SR 통합회원 전환
 priority-booking.html         사전예매 대상·서류
 refund-penalty.html           취소 위약금·환불

@@ -291,6 +291,15 @@ html.is-paid a.cta[data-paid-only]{display:inline-block !important;}
    문장이 어색하게 끊기지 않도록 한다. */
 html.is-paid .disclaimer a[data-paid-only],
 html.is-paid a.inline-link[data-paid-only]{display:inline !important;}
+
+/* 본문 인콘텐츠 광고 슬롯 — 유료 유입에서만 노출(다이렉트/오가닉엔 광고 자체가 없음).
+   버튼(.btn-row)과 최소 한 단락 이상 떨어진, 콘텐츠 사이 자연스러운 전환 지점에만 배치한다. */
+.ad-slot{margin:32px 0;text-align:center;min-height:100px;}
+.ad-slot .ad-label{
+  display:block;font-family:var(--font-mono);font-size:10px;letter-spacing:0.08em;
+  text-transform:uppercase;color:var(--ink-faint);margin-bottom:8px;
+}
+html.is-paid .ad-slot[data-paid-only]{display:block !important;}
 [data-organic-only]{display:inline;}
 html.is-paid [data-organic-only]{display:none !important;}
 

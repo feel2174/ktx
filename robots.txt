@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://ktx.zucca100.com/sitemap.xml
+Sitemap: https://ktx.zucca100.com/rss.xml
